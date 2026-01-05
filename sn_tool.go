@@ -140,7 +140,7 @@ func main() {
     t := flag.String("type", "", "产品类型，如 PT")
     m := flag.String("model", "", "型号，如 MD100")
     snStart := flag.Int("snStart", 1, "起始SN")
-    count := flag.Int("count", 1, "生成数量")
+    count := flag.Int("count", 100, "生成数量")
     file := flag.String("out", "did_list.xls", "导出文件名")
     preview := flag.Int("preview", 10, "控制台预览条数")
     flag.Parse()

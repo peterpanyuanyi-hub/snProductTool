@@ -116,7 +116,7 @@ static bool WriteXls(const std::vector<Row> &rows, const std::string &name)
 
 int main(int argc, char **argv)
 {
-    std::string type="", model="", out="did_list.xls"; int snStart=1, count=1, preview=10;
+    std::string type="", model="", out="did_list.xls"; int snStart=1, count=100, preview=10;
     for (int i = 1; i < argc; ++i) {
         std::string a = argv[i];
         if (a == "-type" && i+1<argc) { type = argv[++i]; }

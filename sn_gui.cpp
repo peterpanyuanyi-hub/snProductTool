@@ -53,7 +53,7 @@ LRESULT CALLBACK WndProc(HWND h, UINT m, WPARAM w, LPARAM l){
     static std::vector<Row> gRows;
     switch(m){
     case WM_CREATE:{
-        CreateWindowEx(0, WC_STATIC, L"生产SN&DID工具", WS_CHILD|WS_VISIBLE, 10,10,300,24, h, 0, 0, 0);
+        CreateWindowEx(0, WC_STATIC, L"生产SN&DID工具 v1.1", WS_CHILD|WS_VISIBLE, 10,10,300,24, h, 0, 0, 0);
         CreateWindowEx(0, WC_STATIC, L"产品类型", WS_CHILD|WS_VISIBLE, 10,40,80,24, h, 0, 0, 0);
         hType=CreateWindowEx(WS_EX_CLIENTEDGE, WC_EDIT, L"", WS_CHILD|WS_VISIBLE|ES_LEFT, 100,40,200,24, h, (HMENU)IDC_TYPE, 0,0);
         CreateWindowEx(0, WC_STATIC, L"型号", WS_CHILD|WS_VISIBLE, 10,70,80,24, h, 0, 0, 0);
@@ -61,7 +61,7 @@ LRESULT CALLBACK WndProc(HWND h, UINT m, WPARAM w, LPARAM l){
         CreateWindowEx(0, WC_STATIC, L"起始SN", WS_CHILD|WS_VISIBLE, 10,100,80,24, h, 0, 0, 0);
         hSnStart=CreateWindowEx(WS_EX_CLIENTEDGE, WC_EDIT, L"1", WS_CHILD|WS_VISIBLE|ES_LEFT, 100,100,200,24, h, (HMENU)IDC_SNSTART, 0,0);
         CreateWindowEx(0, WC_STATIC, L"生成数量", WS_CHILD|WS_VISIBLE, 10,130,80,24, h, 0, 0, 0);
-        hCount=CreateWindowEx(WS_EX_CLIENTEDGE, WC_EDIT, L"1", WS_CHILD|WS_VISIBLE|ES_LEFT, 100,130,200,24, h, (HMENU)IDC_COUNT, 0,0);
+        hCount=CreateWindowEx(WS_EX_CLIENTEDGE, WC_EDIT, L"100", WS_CHILD|WS_VISIBLE|ES_LEFT, 100,130,200,24, h, (HMENU)IDC_COUNT, 0,0);
         CreateWindowEx(0, WC_STATIC, L"导出文件名", WS_CHILD|WS_VISIBLE, 10,160,80,24, h, 0, 0, 0);
         hOut=CreateWindowEx(WS_EX_CLIENTEDGE, WC_EDIT, L"did_list.xls", WS_CHILD|WS_VISIBLE|ES_LEFT, 100,160,200,24, h, (HMENU)IDC_OUT, 0,0);
         CreateWindowEx(0, WC_STATIC, L"预览条数", WS_CHILD|WS_VISIBLE, 10,190,80,24, h, 0, 0, 0);
@@ -218,7 +218,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, PWSTR, int){
     WNDCLASSW wc{}; wc.lpszClassName=L"SN_GUI"; wc.hInstance=hInst; wc.lpfnWndProc=WndProc; wc.hbrBackground=(HBRUSH)(COLOR_WINDOW+1);
     wc.hIcon = CreateAppIcon(); wc.hCursor = LoadCursor(NULL, IDC_ARROW);
     RegisterClassW(&wc);
-    HWND h = CreateWindowExW(0, L"SN_GUI", L"生产SN&DID工具", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, 0, 0, hInst, 0);
+    HWND h = CreateWindowExW(0, L"SN_GUI", L"生产SN&DID工具 v1.1", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, 0, 0, hInst, 0);
     HICON small = CreateAppIcon(); SendMessageW(h, WM_SETICON, ICON_SMALL, (LPARAM)small);
     ShowWindow(h, SW_SHOW);
     MSG msg; while (GetMessage(&msg, 0, 0, 0)){ TranslateMessage(&msg); DispatchMessage(&msg);} return 0;
